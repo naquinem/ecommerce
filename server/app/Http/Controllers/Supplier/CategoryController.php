@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Supplier;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Seller\Category;
+use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
