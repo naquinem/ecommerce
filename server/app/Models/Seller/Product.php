@@ -9,17 +9,21 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'user_id',
         'category_id',
         'name',
         'description',
         'price',
         'quantity',
-        'image_url'
     ];
 
     // Define relationship with the Category model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+    public function users()
+    {
+        return $this->belongsTo(Product::class);
     }
 }
