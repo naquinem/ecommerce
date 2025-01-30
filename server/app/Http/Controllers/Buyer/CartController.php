@@ -47,8 +47,8 @@ class CartController extends Controller
                 if($existingItem){
                     $existingItem->quantity += $validated['quantity'];
                     $existingItem->save();
-                    $product->quantity -= $validated['quantity'];
-                        $product->save();
+                    //$product->quantity -= $validated['quantity'];
+                    //    $product->save();
                     return response()->json([
                         'status' => 200,
                         'cart_item' => $existingItem
@@ -60,8 +60,8 @@ class CartController extends Controller
                         'quantity' => $validated['quantity']
                     ]);
                     if($cartItem){
-                        $product->quantity -= $validated['quantity'];
-                        $product->save();
+                        //$product->quantity -= $validated['quantity'];
+                        //$product->save();
                         return response()->json([
                             'status' => 200,
                             'cart_item' => $cartItem,
