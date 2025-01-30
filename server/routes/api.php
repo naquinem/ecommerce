@@ -15,7 +15,10 @@ Route::middleware('auth:api')->group(function(){
     //products
     Route::post('add-product', [ProductController::class, 'store']);
     Route::get('read-products', [ProductController::class, 'index']);
-    Route::get('show-products', [ProductController::class, 'show']);
+    Route::get('show-product', [ProductController::class, 'show']);
+    Route::put('update-product', [ProductController::class, 'edit']);
+    Route::get('delete-product', [ProductController::class, 'destroy']);
+    //Logout for Authenticated user
     Route::post('logout', [AuthController::class, 'signout']);
 });
 

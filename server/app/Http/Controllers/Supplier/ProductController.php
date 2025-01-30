@@ -47,7 +47,7 @@ class ProductController extends Controller
                 'status' => 200,
                 'message' => 'Product created successfully.',
                 'product' => $product,
-            ]);
+            ], 200);
         }
     }
     public function index()
@@ -61,7 +61,7 @@ class ProductController extends Controller
         } else {
             return response()->json([
                 'status' => 200,
-                'data' => $product
+                'product' => $product
             ], 200);
         }
     }
@@ -72,12 +72,12 @@ class ProductController extends Controller
             return response()->json([
                 'status' => 200,
                 'product' => $product
-            ]);
+            ], 200);
         } else {
             return response()->json([
                 'status' => 404,
-                'product' => 'No product found'
-            ]);
+                'message' => 'No product found'
+            ], 404);
         }
     }
     public function edit(Request $request, $id)
@@ -119,7 +119,7 @@ class ProductController extends Controller
                     'status' => 200,
                     'message' => 'Product created successfully.',
                     'product' => $product,
-                ]);
+                ], 200);
             }
         }
     }
@@ -132,7 +132,12 @@ class ProductController extends Controller
             return response()->json([
                 'status' => 200,
                 'message' => 'Successfully deleted product'
-            ]);
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No product found'
+            ], 404);
         }
     }
 }
