@@ -125,19 +125,29 @@ class ProductController extends Controller
     }
     public function destroy($id)
     {
-        //Find the unique product id
-        $product = Product::find($id);
-        if($product) {
-            $product->delete();
-            return response()->json([
-                'status' => 200,
-                'message' => 'Successfully deleted product'
-            ], 200);
+        //Check if the user is authenticated
+        $user = Auth::check();
+        if($user) {
+            //Find the unique product id
+            $product = Product::find($id);
+            if($product) {
+                $product->delete();
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Successfully deleted product'
+                ], 200);
+            } else {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'No product found'
+                ], 404);
+            }
         } else {
             return response()->json([
-                'status' => 404,
-                'message' => 'No product found'
-            ], 404);
+                'status' => 401,
+                'error' => 'Unauthorized',
+                'message' => 'You must be logged in to delete product.',
+            ], 401);
         }
     }
 }
