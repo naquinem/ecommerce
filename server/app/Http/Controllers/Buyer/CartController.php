@@ -23,7 +23,7 @@ class CartController extends Controller
         } else {
             return response()->json([
                 'status' => 200,
-                'data' => $cart->items
+                'cart' => $cart->items
             ], 200);
         }
     }

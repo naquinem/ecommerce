@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Buyer\CartController;
+use App\Http\Controllers\Buyer\OrderController;
 use App\Http\Controllers\Supplier\ProductController;
 use App\Http\Controllers\Supplier\CategoryController;
 
@@ -27,7 +28,9 @@ Route::middleware('auth:api')->group(function(){
 
     Route::get('read-carts', [CartController::class, 'cartIndex']);
     Route::post('add-cart-items', [CartController::class, 'store']);
-    Route::post('checkout', [CartController::class, 'checkout']);
+
+    Route::post('read-order', [OrderController::class, 'index']);
+    Route::post('checkout-order', [OrderController::class, 'store']);
 
     Route::post('logout', [AuthController::class, 'signout']);
 });
