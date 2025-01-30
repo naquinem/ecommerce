@@ -14,55 +14,17 @@ class CartController extends Controller
 {
     public function cartIndex()
     {
-        $user = Auth::check();
-        //Check if the user is authenticated
-        if($user) {
-            $cart = Cart::all();
-            //Check if the cart have data
-            if($cart) {
-                return response()->json([
-                    'status' => 200,
-                    'cart' => $cart,
-                    'cart_items' => $cart->items
-                ], 200);
-            } else {
-                return response()->json([
-                    'status' => 404,
-                    'message' => 'No cart found'
-                ], 404);
-            }
+        $cart = Cart::where('user_id', Auth::id())->first();
+        if(!$cart){
+            return response()->json([
+                'status' => 404,
+                'message' => 'Cart not found'
+            ], 404);
         } else {
             return response()->json([
-                'status' => 401,
-                'error' => 'Unauthorized',
-                'message' => 'You must be logged in to view all data in cart.',
-            ], 401);
-        }
-    }
-    public function index()
-    {
-        $user = Auth::check();
-        //Check if the user is authenticated
-        if($user) {
-            $cart = CartItem::all();
-            //Check if the cart items have data
-            if($cart) {
-                return response()->json([
-                    'status' => 200,
-                    'cart' => $cart
-                ], 200);
-            } else {
-                return response()->json([
-                    'status' => 404,
-                    'message' => 'No cart found'
-                ], 404);
-            }
-        } else {
-            return response()->json([
-                'status' => 401,
-                'error' => 'Unauthorized',
-                'message' => 'You must be logged in to view all data in cart.',
-            ], 401);
+                'status' => 200,
+                'data' => $cart->items
+            ], 200);
         }
     }
     public function store(Request $request)

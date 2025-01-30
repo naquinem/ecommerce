@@ -26,8 +26,8 @@ Route::middleware('auth:api')->group(function(){
     Route::delete('delete-product', [ProductController::class, 'destroy']);
 
     Route::get('read-carts', [CartController::class, 'cartIndex']);
-    Route::get('read-cart-items', [CartController::class, 'index']);
     Route::post('add-cart-items', [CartController::class, 'store']);
+    Route::post('checkout', [CartController::class, 'checkout']);
 
     Route::post('logout', [AuthController::class, 'signout']);
 });

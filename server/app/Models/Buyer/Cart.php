@@ -2,8 +2,9 @@
 
 namespace App\Models\Buyer;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+//use App\Models\Buyer\CartItem;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Cart extends Model
 {
