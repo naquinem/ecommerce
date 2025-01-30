@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Buyer;
 
+use App\Models\User;
 use App\Models\Buyer\Cart;
 use Illuminate\Http\Request;
 use App\Models\Buyer\CartItem;
+use App\Models\Seller\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function CartIndex()
+    public function cartIndex()
     {
         $user = Auth::check();
         //Check if the user is authenticated
@@ -71,7 +73,7 @@ class CartController extends Controller
             'quantity' => 'required|integer'
         ]);
         if($validated) {
-            $user = User::where('id', Auth::id());
+            $user = User::where('id', Auth::id())->first();
             if($user) {
                 $cart = Cart::firstOrCreate([
                     'user_id' => Auth::id()
@@ -79,23 +81,31 @@ class CartController extends Controller
                 $product = Product::where('id', $validated['product_id'])->first();
                 $existingItem = CartItem::where('cart_id', $cart->id)
                                 ->where('product_id', $validated['product_id'])
-                                ->exists();
+                                ->first();
                 if($existingItem){
                     $existingItem->quantity += $validated['quantity'];
                     $existingItem->save();
+                    $product->quantity -= $validated['quantity'];
+                        $product->save();
+                    return response()->json([
+                        'status' => 200,
+                        'cart_item' => $existingItem
+                    ], 200);
                 } else {
                     $cartItem = CartItem::create([
                         'cart_id' => $cart->id,
                         'product_id' => $product->id,
                         'quantity' => $validated['quantity']
                     ]);
-                    return response()->json([
-                        'status' => 200,
-                        'products' => [
+                    if($cartItem){
+                        $product->quantity -= $validated['quantity'];
+                        $product->save();
+                        return response()->json([
+                            'status' => 200,
                             'cart_item' => $cartItem,
-                            'details' => $cartItem->products
-                        ]
-                    ], 200);
+                            'cart_item_product' => $cartItem->product
+                        ], 200);
+                    }
                 }
             }
         } else {

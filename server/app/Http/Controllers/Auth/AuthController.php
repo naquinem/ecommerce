@@ -48,12 +48,11 @@ class AuthController extends Controller
         ]);
         if($validated){
             $user = User::where('email', $validated['email'])->first();
-
-            if(!$user | !Hash::check($validated['password'], $user->password)){
+            if(!$user || !Hash::check($validated['password'], $user->password)){
                 return response()->json([
                     "error" => "Unauthenticated",
-                    "message" => "Authentication is required. Please provide valid authentication credentials to access this resource."
-                ],401);
+                    "message" => "Email or password is incorrect"
+                ], 401);
             } else {
                 $token = $user->createToken($user->username.'_token')->accessToken;
                 return response()->json([
@@ -61,7 +60,7 @@ class AuthController extends Controller
                     'message' => 'Successfully login',
                     'user' => $user->username,
                     'token' => $token
-                ],200);
+                ], 200);
             }
         } else {
             return response()->json([
