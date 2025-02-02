@@ -10,6 +10,9 @@ import { LoginComponent } from './Pages/Auth/login/login.component';
 import { RegisterComponent } from './Pages/Auth/register/register.component';
 import { NavbarComponent } from './Pages/Components/navbar/navbar.component';
 import { FooterComponent } from './Pages/Components/footer/footer.component';
+import { HomeComponent } from './Pages/Protected/home/home.component';
+import { MainNavbarComponent } from './Pages/Components/main-navbar/main-navbar.component';
+import { MainComponent } from './Pages/Unprotected/main/main.component';
 
 
 
@@ -19,7 +22,10 @@ import { FooterComponent } from './Pages/Components/footer/footer.component';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    MainNavbarComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
