@@ -18,9 +18,17 @@ class CategoryController extends Controller
         ]);
         //Check if validated data
         if($validated){
-            $user = Auth::check();
+            //$user = Auth::check();
             //Check if the user is authenticated
-            if($user) {
+            $category = Category::create([
+                'name' => $validated['name'],
+                'description' => $validated['description']
+            ]);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Successfully add category'
+            ], 200);
+            /*if($user) {
                 $category = Category::create([
                     'name' => $validated['name'],
                     'description' => $validated['description']
@@ -32,40 +40,33 @@ class CategoryController extends Controller
             } else {
                 return response()->json([
                     'status' => 401,
-                    'error' => 'Unauthorized',
+                    'errors' => 'Unauthorized',
                     'message' => 'You must be logged in to create category.',
                 ], 401);
-            }
+            } */
         } else {
             return response()->json([
-                "error" => "Bad Request",
+                "status" => 422,
+                "errors" => "Bad Request",
                 "message" => "Some required fields are missing. Please ensure all required information is provided."
             ], 422);
         }
     }
     public function index()
     {
-        $user = Auth::check();
-        if($user) {
+        $categories = Category::all();
             //View all categories
-            $categories = Category::all();
-            if($categories){
-                return response()->json([
-                    'status' => 200,
-                    'categories' => $categories
-                ], 200);
-            } else {
-                return response()->json([
-                    'status' => 404,
-                    'message' => 'No categories found'
-                ], 404);
-            }
+        $categories = Category::all();
+        if($categories){
+            return response()->json([
+                'status' => 200,
+                'categories' => $categories
+            ], 200);
         } else {
             return response()->json([
-                'status' => 401,
-                'error' => 'Unauthorized',
-                'message' => 'You must be logged in to view all categories.',
-            ], 401);
+                'status' => 404,
+                'message' => 'No categories found'
+            ], 404);
         }
     }
     public function show($id)

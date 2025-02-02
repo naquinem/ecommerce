@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,8 @@ import { MainNavbarComponent } from './Pages/Components/main-navbar/main-navbar.
 import { MainComponent } from './Pages/Unprotected/main/main.component';
 import { HomeNavbarComponent } from './Pages/Components/home-navbar/home-navbar.component';
 import { AddProductComponent } from './Pages/Protected/add-product/add-product.component';
+import { AddCategoryComponent } from './Pages/Protected/add-category/add-category.component';
+import { AuthenticationInterceptor } from './Services/authentication.interceptor';
 
 
 
@@ -29,7 +31,8 @@ import { AddProductComponent } from './Pages/Protected/add-product/add-product.c
     MainNavbarComponent,
     MainComponent,
     HomeNavbarComponent,
-    AddProductComponent
+    AddProductComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,11 @@ import { AddProductComponent } from './Pages/Protected/add-product/add-product.c
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthenticationInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

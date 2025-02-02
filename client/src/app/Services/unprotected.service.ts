@@ -5,16 +5,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UnprotectedService {
-  private apiUrl = 'http://127.0.0.1:8000/api/read-products';
-
   constructor(private api: HttpClient) { }
 
   getProductData() {
-    return this.api.get(this.apiUrl);
+    return this.api.get('http://127.0.0.1:8000/api/read-products');
   }
-
-  // Optional: API supports search
-  searchProducts(query: string) {
-    return this.api.get(`${this.apiUrl}?search=${query}`);
+  getAllCategory() {
+    return this.api.get('http://127.0.0.1:8000/api/show-categories');
   }
 }

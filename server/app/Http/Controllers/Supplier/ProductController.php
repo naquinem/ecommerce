@@ -22,12 +22,12 @@ class ProductController extends Controller
             'quantity' => 'required|integer|min:0',
         ]);
         // Get the authenticated user
-        $user = User::where('id', Auth::user()->id)->first();
+        $user = User::where('id', Auth::id())->first();
         if (!$user) {
             // Return 401 Unauthorized if the user is not logged in
             return response()->json([
                 'status' => 401,
-                'error' => 'Unauthorized',
+                'errors' => 'Unauthorized',
                 'message' => 'You must be logged in to create a product.',
             ], 401);
         } else {
