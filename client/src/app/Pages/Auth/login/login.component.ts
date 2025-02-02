@@ -26,6 +26,8 @@ export class LoginComponent {
             icon: 'success',
             confirmButtonText: 'Great!'
           });
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('username', response.user);
           this.router.navigate(['/home']);
         }
       },

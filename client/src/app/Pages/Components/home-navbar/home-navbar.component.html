@@ -1,0 +1,54 @@
+<div class="container mt-3">
+  <div class="row justify-content-center g-2">
+    <!-- Search Input -->
+    <div class="col-12 col-md-6">
+      <input
+        class="form-control"
+        type="search"
+        placeholder="Search products..."
+        [(ngModel)]="searchTerm"
+        (input)="searchProducts()"
+        aria-label="Search">
+    </div>
+
+    <!-- Search Button -->
+    <div class="col-12 col-md-auto">
+      <button class="btn btn-outline-success w-100 w-md-auto" (click)="searchProducts()">Search</button>
+    </div>
+
+    <!-- Cart Icon -->
+    <div class="col-12 col-md-auto">
+      <a href="/cart" class="btn position-relative w-100 w-md-auto">
+        <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          3 <!-- Example cart count -->
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Search Results Display -->
+  <div class="row mt-3">
+    <!-- Check if there are products -->
+    <ng-container *ngIf="searchResults.length > 0; else noData">
+      <div class="col-md-4" *ngFor="let product of searchResults">
+        <div class="card">
+          <img [src]="product.image" class="card-img-top" alt="Product Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="text-success fw-bold">$ {{ product.price }}</p>
+            <button class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- No Products Found Message -->
+    <ng-template #noData>
+      <div class="text-center text-danger mt-3">
+        <h5>No Products Found</h5>
+      </div>
+    </ng-template>
+  </div>
+</div>

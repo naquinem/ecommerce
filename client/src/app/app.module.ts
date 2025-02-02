@@ -13,6 +13,8 @@ import { FooterComponent } from './Pages/Components/footer/footer.component';
 import { HomeComponent } from './Pages/Protected/home/home.component';
 import { MainNavbarComponent } from './Pages/Components/main-navbar/main-navbar.component';
 import { MainComponent } from './Pages/Unprotected/main/main.component';
+import { HomeNavbarComponent } from './Pages/Components/home-navbar/home-navbar.component';
+import { AddProductComponent } from './Pages/Protected/add-product/add-product.component';
 
 
 
@@ -25,7 +27,9 @@ import { MainComponent } from './Pages/Unprotected/main/main.component';
     FooterComponent,
     HomeComponent,
     MainNavbarComponent,
-    MainComponent
+    MainComponent,
+    HomeNavbarComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

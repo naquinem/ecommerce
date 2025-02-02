@@ -11,17 +11,17 @@ use App\Http\Controllers\Supplier\CategoryController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'signin']);
+Route::get('read-products', [ProductController::class, 'index']);
+Route::get('show-categories', [CategoryController::class, 'index']);
 
 Route::middleware('auth:api')->group(function(){
 
     Route::post('add-category', [CategoryController::class, 'store']);
-    Route::get('show-categories', [CategoryController::class, 'index']);
     Route::get('show-category/{id}', [CategoryController::class, 'show']);
     Route::put('update-category/{id}', [CategoryController::class, 'edit']);
     Route::delete('delete-category', [CategoryController::class, 'destroy']);
 
     Route::post('add-product', [ProductController::class, 'store']);
-    Route::get('read-products', [ProductController::class, 'index']);
     Route::get('show-product/{id}', [ProductController::class, 'show']);
     Route::put('update-product/{id}', [ProductController::class, 'edit']);
     Route::delete('delete-product', [ProductController::class, 'destroy']);
