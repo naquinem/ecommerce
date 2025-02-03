@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProtectedService } from 'src/app/Services/protected.service';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-products',
@@ -9,7 +10,7 @@ import { trigger, transition, style, animate, query, stagger } from '@angular/an
 
 })
 export class ViewProductsComponent implements OnInit {
-  constructor(private http: ProtectedService){}
+  constructor(private http: ProtectedService, private router: Router){}
   products: any [] = [];
   error: string|null = null;
   ngOnInit(): void {

@@ -46,12 +46,12 @@ const routes: Routes = [
         title: 'View Categories'
       },
       {
-        path: 'update-category',
+        path: 'view-categories/update/:id',
         component: UpdateCategoryComponent,
         title: 'Update Category'
       },
       {
-        path: 'delete-category',
+        path: 'view-categories/delete/:id',
         component: DeleteCategoryComponent,
         title: 'Delete Category'
       },
@@ -66,12 +66,12 @@ const routes: Routes = [
         title: 'View Products'
       },
       {
-        path: 'update-product',
+        path: 'view-products/update/:id',
         component: UpdateProductComponent,
         title: 'Update Product'
       },
       {
-        path: 'delete-product',
+        path: 'view-products/delete/:id',
         component: DeleteProductComponent,
         title: 'Delete Product'
       },

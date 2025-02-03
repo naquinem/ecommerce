@@ -8,6 +8,14 @@
           <p class="card-text text-muted">{{ item.description }}</p>
           <p class="fw-bold text-primary">Price: ${{ item.price }}</p>
           <p class="text-success">Stock: {{ item.quantity }}</p>
+          <div class="d-flex justify-content-between mt-3">
+            <button class="btn btn-warning btn-sm">
+              <a routerLink="update/{{item.id}}">Update</a>
+            </button>
+            <button class="btn btn-danger btn-sm">
+              <a routerLink="delete/{{item.id}}">Delete</a>
+            </button>
+          </div>
         </div>
       </div>
     </div>
