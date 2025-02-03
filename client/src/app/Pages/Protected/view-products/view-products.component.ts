@@ -17,13 +17,11 @@ export class ViewProductsComponent implements OnInit {
       next: (response:any) => {
         if(response.status === 200) {
           this.products = response.products
-          console.log(response);
         }
       },
-      error: (response:any) => {
-        if(response.status === 404) {
-          this.error= response.message
-          console.log(this.error);
+      error: (error:any) => {
+        if(error.status === 404) {
+          this.error= error.message
         }
       }
     });

@@ -54,8 +54,7 @@ class CategoryController extends Controller
     }
     public function index()
     {
-        $categories = Category::all();
-            //View all categories
+        //View all categories
         $categories = Category::all();
         if($categories){
             return response()->json([
