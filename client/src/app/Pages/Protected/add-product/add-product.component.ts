@@ -54,6 +54,13 @@ export class AddProductComponent implements OnInit {
             icon: 'error',
             confirmButtonText: 'Okay'
           });
+        } else if(response.status === 422) {
+          Swal.fire({
+            title: 'Error!',
+            text: response.error.message,
+            icon: 'error',
+            confirmButtonText: 'Okay'
+          });
         }
       }
     });

@@ -17,8 +17,8 @@ export class HomeNavbarComponent implements OnInit {
     // Fetch all products once
     this.http.getProductData().subscribe((response: any) => {
       this.allProducts = response.product;
-      console.log(response);
     });
+    this.searchProducts();
   }
 
   searchProducts() {

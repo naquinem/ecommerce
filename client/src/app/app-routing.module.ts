@@ -6,6 +6,9 @@ import { MainComponent } from './Pages/Unprotected/main/main.component';
 import { HomeComponent } from './Pages/Protected/home/home.component';
 import { AddCategoryComponent } from './Pages/Protected/add-category/add-category.component';
 import { AddProductComponent } from './Pages/Protected/add-product/add-product.component';
+import { CartComponent } from './Pages/Protected/cart/cart.component';
+import { ViewCategoriesComponent } from './Pages/Protected/view-categories/view-categories.component';
+import { ViewProductsComponent } from './Pages/Protected/view-products/view-products.component';
 
 const routes: Routes = [
   {
@@ -34,9 +37,24 @@ const routes: Routes = [
         title: 'Add Category'
       },
       {
+        path: 'view-category',
+        component: ViewCategoriesComponent,
+        title: 'View Categories'
+      },
+      {
         path: 'add-product',
         component: AddProductComponent,
         title: 'Add Product'
+      },
+      {
+        path: 'view-products',
+        component: ViewProductsComponent,
+        title: 'View Products'
+      },
+      {
+        path: 'add-cart',
+        component: CartComponent,
+        title: 'Cart'
       },
     ]
   },

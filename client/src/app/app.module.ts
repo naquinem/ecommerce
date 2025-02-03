@@ -17,6 +17,13 @@ import { HomeNavbarComponent } from './Pages/Components/home-navbar/home-navbar.
 import { AddProductComponent } from './Pages/Protected/add-product/add-product.component';
 import { AddCategoryComponent } from './Pages/Protected/add-category/add-category.component';
 import { AuthenticationInterceptor } from './Services/authentication.interceptor';
+import { CartComponent } from './Pages/Protected/cart/cart.component';
+import { ViewProductsComponent } from './Pages/Protected/view-products/view-products.component';
+import { ViewCategoriesComponent } from './Pages/Protected/view-categories/view-categories.component';
+import { DeleteProductComponent } from './Pages/Protected/delete-product/delete-product.component';
+import { UpdateProductComponent } from './Pages/Protected/update-product/update-product.component';
+import { UpdateCategoryComponent } from './Pages/Protected/update-category/update-category.component';
+import { DeleteCategoryComponent } from './Pages/Protected/delete-category/delete-category.component';
 
 
 
@@ -32,7 +39,14 @@ import { AuthenticationInterceptor } from './Services/authentication.interceptor
     MainComponent,
     HomeNavbarComponent,
     AddProductComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    CartComponent,
+    ViewProductsComponent,
+    ViewCategoriesComponent,
+    DeleteProductComponent,
+    UpdateProductComponent,
+    UpdateCategoryComponent,
+    DeleteCategoryComponent
   ],
   imports: [
     BrowserModule,
