@@ -8,12 +8,14 @@
           <p class="card-text text-muted">{{ item.description }}</p>
           <p class="fw-bold text-primary">Price: ${{ item.price }}</p>
           <p class="text-success">Stock: {{ item.quantity }}</p>
-          <div class="d-flex justify-content-between mt-3">
+          <div class="d-flex justify-content-center gap-2 mt-3">
+            <!-- Update Button -->
             <button class="btn btn-warning btn-sm">
-              <a routerLink="update/{{item.id}}">Update</a>
+              <a routerLink="update/{{item.id}}" class="text-decoration-none text-white">Update</a>
             </button>
+            <!-- Delete Button -->
             <button class="btn btn-danger btn-sm">
-              <a routerLink="delete/{{item.id}}">Delete</a>
+              <a routerLink="delete/{{item.id}}" class="text-decoration-none text-white">Delete</a>
             </button>
           </div>
         </div>
