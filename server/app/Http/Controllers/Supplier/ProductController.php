@@ -52,16 +52,17 @@ class ProductController extends Controller
     }
     public function index()
     {
-        $product = Product::where('user_id', Auth::id())->get();
-        if(!$product){
+        $user = Product::where('user_id', Auth::id())->get();
+        if(!$user){
             return response()->json([
                 'status' => 404,
                 'message' => 'Cart not found'
             ], 404);
         } else {
+            $products = Product::all();
             return response()->json([
                 'status' => 200,
-                'product' => $product
+                'products' => $products
             ], 200);
         }
     }

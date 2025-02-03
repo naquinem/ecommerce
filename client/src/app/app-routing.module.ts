@@ -9,6 +9,10 @@ import { AddProductComponent } from './Pages/Protected/add-product/add-product.c
 import { CartComponent } from './Pages/Protected/cart/cart.component';
 import { ViewCategoriesComponent } from './Pages/Protected/view-categories/view-categories.component';
 import { ViewProductsComponent } from './Pages/Protected/view-products/view-products.component';
+import { UpdateCategoryComponent } from './Pages/Protected/update-category/update-category.component';
+import { DeleteCategoryComponent } from './Pages/Protected/delete-category/delete-category.component';
+import { UpdateProductComponent } from './Pages/Protected/update-product/update-product.component';
+import { DeleteProductComponent } from './Pages/Protected/delete-product/delete-product.component';
 
 const routes: Routes = [
   {
@@ -37,9 +41,19 @@ const routes: Routes = [
         title: 'Add Category'
       },
       {
-        path: 'view-category',
+        path: 'view-categories',
         component: ViewCategoriesComponent,
         title: 'View Categories'
+      },
+      {
+        path: 'update-category',
+        component: UpdateCategoryComponent,
+        title: 'Update Category'
+      },
+      {
+        path: 'delete-category',
+        component: DeleteCategoryComponent,
+        title: 'Delete Category'
       },
       {
         path: 'add-product',
@@ -50,6 +64,16 @@ const routes: Routes = [
         path: 'view-products',
         component: ViewProductsComponent,
         title: 'View Products'
+      },
+      {
+        path: 'update-product',
+        component: UpdateProductComponent,
+        title: 'Update Product'
+      },
+      {
+        path: 'delete-product',
+        component: DeleteProductComponent,
+        title: 'Delete Product'
       },
       {
         path: 'add-cart',

@@ -15,4 +15,12 @@ export class ProtectedService {
   addCategory(category:any){
     return this.api.post('http://127.0.0.1:8000/api/add-category', category);
   }
+  //View all products
+  getProducts(){
+    return this.api.get('http://127.0.0.1:8000/api/read-products');
+  }
+  //View all categories
+  getCategories(){
+    return this.api.get('http://127.0.0.1:8000/api/read-products');
+  }
 }

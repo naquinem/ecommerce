@@ -12,7 +12,7 @@ use App\Http\Controllers\Supplier\CategoryController;
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'signin']);
 Route::get('read-products', [ProductController::class, 'index']);
-Route::get('show-categories', [CategoryController::class, 'index']);
+Route::get('read-categories', [CategoryController::class, 'index']);
 
 
 Route::middleware('auth:api')->group(function(){

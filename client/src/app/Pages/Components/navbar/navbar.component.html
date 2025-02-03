@@ -1,5 +1,5 @@
-<div class="">
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
 
       <!-- Toggler for mobile view -->
@@ -13,23 +13,37 @@
 
       <!-- Navbar links and search -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Left side navigation links -->
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/home/add-category">Add Category</a>
+
+          <!-- Category Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Category
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+              <li><a class="dropdown-item" routerLink="/home/add-category">Add Category</a></li>
+              <li><a class="dropdown-item" routerLink="/home/view-categories">View Categories</a></li>
+              <li><a class="dropdown-item" routerLink="/home/update-category">Update Category</a></li>
+              <li><a class="dropdown-item" routerLink="/home/delete-category">Delete Category</a></li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/home/view-category">View Category</a>
+
+          <!-- Product Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Product
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="productDropdown">
+              <li><a class="dropdown-item" routerLink="/home/add-product">Add Product</a></li>
+              <li><a class="dropdown-item" routerLink="/home/view-products">View Products</a></li>
+              <li><a class="dropdown-item" routerLink="/home/update-product">Update Product</a></li>
+              <li><a class="dropdown-item" routerLink="/home/delete-product">Delete Product</a></li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/home/add-product">Add Product</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/home/view-products">View Products</a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link" routerLink="/home/add-cart">Add Cart</a>
           </li>
