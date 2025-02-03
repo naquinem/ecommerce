@@ -20,12 +20,12 @@ Route::middleware('auth:api')->group(function(){
     Route::post('add-category', [CategoryController::class, 'store']);
     Route::get('show-category/{id}', [CategoryController::class, 'show']);
     Route::put('update-category/{id}', [CategoryController::class, 'edit']);
-    Route::delete('delete-category', [CategoryController::class, 'destroy']);
+    Route::delete('delete-category/{id}', [CategoryController::class, 'destroy']);
 
     Route::post('add-product', [ProductController::class, 'store']);
     Route::get('show-product/{id}', [ProductController::class, 'show']);
     Route::put('update-product/{id}', [ProductController::class, 'edit']);
-    Route::delete('delete-product', [ProductController::class, 'destroy']);
+    Route::delete('delete-product/{id}', [ProductController::class, 'destroy']);
 
     Route::get('read-carts', [CartController::class, 'cartIndex']);
     Route::post('add-cart-items', [CartController::class, 'store']);

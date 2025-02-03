@@ -1,1 +1,27 @@
-<p>delete-product works!</p>
+<div *ngIf="product; else noData" class="container mt-4 text-center">
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-4 col-lg-3 d-flex justify-content-center">
+      <div class="card h-100 shadow-sm hover-effect" style="width: 18rem;">
+        <img [src]="product.image_url" class="card-img-top" alt="{{ product.name }} - Product Image">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text text-muted">{{ product.description }}</p>
+          <p class="fw-bold text-primary">Price: ${{ product.price }}</p>
+          <p class="text-success">Quantity: {{ product.quantity }}</p>
+          <div class="d-flex justify-content-center gap-2 mt-3">
+            <!-- Delete Button -->
+            <button class="btn btn-danger btn-sm" (click)="handleDelete()">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noData>
+  <div class="container mt-4 text-center" *ngIf="error">
+    <h5 class="text-muted">{{ error }}</h5>
+  </div>
+</ng-template>
