@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProtectedService } from 'src/app/Services/protected.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-delete-product',
@@ -42,11 +43,25 @@ export class DeleteProductComponent implements OnInit {
       this.http.deleteProduct(id).subscribe({
         next: (response: any) => {
           if (response.status === 200) {
+            Swal.fire({
+              title: 'Success!',
+              text: response.message,
+              icon: 'success',
+              confirmButtonText: 'Okay'
+            });
             this.router.navigate(['/home/view-products']);
           }
         },
         error: (error: any) => {
-          this.error = error.message
+          if(error.status === 404){
+            Swal.fire({
+              title: 'Error!',
+              text: error.message,
+              icon: 'error',
+              confirmButtonText: 'Okay'
+            });
+            this.router.navigate(['home/view-products']);
+          }
         }
       });
     }
