@@ -6,13 +6,13 @@ import { MainComponent } from './Pages/Unprotected/main/main.component';
 import { HomeComponent } from './Pages/Protected/home/home.component';
 import { AddCategoryComponent } from './Pages/Protected/add-category/add-category.component';
 import { AddProductComponent } from './Pages/Protected/add-product/add-product.component';
-import { CartComponent } from './Pages/Protected/cart/cart.component';
 import { ViewCategoriesComponent } from './Pages/Protected/view-categories/view-categories.component';
 import { ViewProductsComponent } from './Pages/Protected/view-products/view-products.component';
 import { UpdateCategoryComponent } from './Pages/Protected/update-category/update-category.component';
 import { DeleteCategoryComponent } from './Pages/Protected/delete-category/delete-category.component';
 import { UpdateProductComponent } from './Pages/Protected/update-product/update-product.component';
 import { DeleteProductComponent } from './Pages/Protected/delete-product/delete-product.component';
+import { OrderListsComponent } from './Pages/Protected/order-lists/order-lists.component';
 
 const routes: Routes = [
   {
@@ -76,9 +76,9 @@ const routes: Routes = [
         title: 'Delete Product'
       },
       {
-        path: 'add-cart',
-        component: CartComponent,
-        title: 'Cart'
+        path: 'oder-lists',
+        component: OrderListsComponent,
+        title: 'Order Lists'
       },
     ]
   },

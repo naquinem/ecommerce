@@ -17,7 +17,6 @@ import { HomeNavbarComponent } from './Pages/Components/home-navbar/home-navbar.
 import { AddProductComponent } from './Pages/Protected/add-product/add-product.component';
 import { AddCategoryComponent } from './Pages/Protected/add-category/add-category.component';
 import { AuthenticationInterceptor } from './Services/authentication.interceptor';
-import { CartComponent } from './Pages/Protected/cart/cart.component';
 import { ViewProductsComponent } from './Pages/Protected/view-products/view-products.component';
 import { ViewCategoriesComponent } from './Pages/Protected/view-categories/view-categories.component';
 import { DeleteProductComponent } from './Pages/Protected/delete-product/delete-product.component';
@@ -27,6 +26,7 @@ import { DeleteCategoryComponent } from './Pages/Protected/delete-category/delet
 import { CustomerCartComponent } from './Pages/Protected/Customer/customer-cart/customer-cart.component';
 import { CustomerOrderComponent } from './Pages/Protected/Customer/customer-order/customer-order.component';
 import { CustomerHomeComponent } from './Pages/Protected/Customer/customer-home/customer-home.component';
+import { OrderListsComponent } from './Pages/Protected/order-lists/order-lists.component';
 
 
 
@@ -43,7 +43,6 @@ import { CustomerHomeComponent } from './Pages/Protected/Customer/customer-home/
     HomeNavbarComponent,
     AddProductComponent,
     AddCategoryComponent,
-    CartComponent,
     ViewProductsComponent,
     ViewCategoriesComponent,
     DeleteProductComponent,
@@ -52,7 +51,8 @@ import { CustomerHomeComponent } from './Pages/Protected/Customer/customer-home/
     DeleteCategoryComponent,
     CustomerCartComponent,
     CustomerOrderComponent,
-    CustomerHomeComponent
+    CustomerHomeComponent,
+    OrderListsComponent
   ],
   imports: [
     BrowserModule,
