@@ -48,4 +48,8 @@ export class ProtectedService {
   updateCategory(category:any,id:any){
     return this.api.get(`http://127.0.0.1:8000/api/update-category/${id}`, category);
   }
+  //Delete individual category
+  deleteCategory(id:any){
+    return this.api.delete(`http://127.0.0.1:8000/api/delete-category/${id}`);
+  }
 }

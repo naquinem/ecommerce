@@ -24,6 +24,9 @@ import { DeleteProductComponent } from './Pages/Protected/delete-product/delete-
 import { UpdateProductComponent } from './Pages/Protected/update-product/update-product.component';
 import { UpdateCategoryComponent } from './Pages/Protected/update-category/update-category.component';
 import { DeleteCategoryComponent } from './Pages/Protected/delete-category/delete-category.component';
+import { CustomerCartComponent } from './Pages/Protected/Customer/customer-cart/customer-cart.component';
+import { CustomerOrderComponent } from './Pages/Protected/Customer/customer-order/customer-order.component';
+import { CustomerHomeComponent } from './Pages/Protected/Customer/customer-home/customer-home.component';
 
 
 
@@ -46,7 +49,10 @@ import { DeleteCategoryComponent } from './Pages/Protected/delete-category/delet
     DeleteProductComponent,
     UpdateProductComponent,
     UpdateCategoryComponent,
-    DeleteCategoryComponent
+    DeleteCategoryComponent,
+    CustomerCartComponent,
+    CustomerOrderComponent,
+    CustomerHomeComponent
   ],
   imports: [
     BrowserModule,
