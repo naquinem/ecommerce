@@ -18,12 +18,10 @@ export class DeleteCategoryComponent implements OnInit {
       next: (response:any) => {
         if(response.status === 200) {
           this.category = response.category
-          console.log(response.category);
         }
       },
       error: (error:any) => {
         if(error.status === 404) {
-          console.log(error.message);
           this.error = error.message
         }
       }

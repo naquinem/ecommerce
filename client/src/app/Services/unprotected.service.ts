@@ -11,6 +11,6 @@ export class UnprotectedService {
     return this.api.get('http://127.0.0.1:8000/api/read-products');
   }
   getAllCategory() {
-    return this.api.get('http://127.0.0.1:8000/api/show-categories');
+    return this.api.get('http://127.0.0.1:8000/api/read-categories');
   }
 }

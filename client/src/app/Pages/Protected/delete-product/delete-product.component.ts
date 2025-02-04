@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./delete-product.component.css']
 })
 export class DeleteProductComponent implements OnInit {
-  product: any = {};  // Change to an object to store the product
+  product: any = {};
   error: string | null = null;
 
   constructor(
@@ -24,7 +24,7 @@ export class DeleteProductComponent implements OnInit {
       this.http.getProduct(id).subscribe({
         next: (response: any) => {
           if (response.status === 200) {
-            this.product = response.product;  // Assuming response.product is an object
+            this.product = response.product;
             console.log(this.product);
           }
         },
