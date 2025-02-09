@@ -106,14 +106,11 @@ class ProductController extends Controller
     {
         // Validate the request
         $validated = $request->validate([
-            'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'price' => 'required|integer|min:0',
             'quantity' => 'required|integer|min:0',
         ]);
-        // Upload the image
-        $imagePath = $request->file('image_url')->store('images', 'public');
         // Get the authenticated user
         $user = User::where('id', Auth::user()->id)->first();
         if (!$user) {
@@ -129,7 +126,6 @@ class ProductController extends Controller
             if($product) {
                 // Create the product
                 $product->update([
-                    'image_url' => $imagePath,
                     'name' => $validated['name'],
                     'description' => $validated['description'],
                     'price' => $validated['price'],

@@ -1,27 +1,61 @@
-<div *ngIf="product; else noData" class="container mt-4 text-center">
-  <div class="row g-4 justify-content-center">
-    <div class="col-md-4 col-lg-3 d-flex justify-content-center">
-      <div class="card h-100 shadow-sm hover-effect" style="width: 18rem;">
-        <img [src]="'http://localhost:8000/storage/' + product.image_url" class="card-img-top" alt="{{ product.name }} - Product Image">
-        <div class="card-body">
-          <h5 class="card-title">{{ product.name }}</h5>
-          <p class="card-text text-muted">{{ product.description }}</p>
-          <p class="fw-bold text-primary">Price: ${{ product.price }}</p>
-          <p class="text-success">Quantity: {{ product.quantity }}</p>
-          <div class="d-flex justify-content-center gap-2 mt-3">
-            <!-- Delete Button -->
-            <button class="btn btn-danger btn-sm" (click)="handleUpdate()">
-              Update
-            </button>
-          </div>
+<div class="container mt-2">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6">
+      <div class="card shadow border-0">
+
+        <!-- Card Header -->
+        <div class="card-header bg-primary text-white text-center py-2">
+          <h5 class="mb-0">Update Product</h5>
+        </div>
+
+        <div class="card-body p-3">
+          <form (ngSubmit)="handleUpdate()" #productForm="ngForm">
+
+            <!-- Image Preview -->
+            <div class="text-center mb-2">
+              <img [src]="'http://localhost:8000/storage/' + product.image_url"
+                   class="rounded shadow-sm border"
+                   alt="{{ product.name }}"
+                   style="width: 12rem; height: 12rem; object-fit: cover;">
+            </div>
+
+            <!-- Product Name -->
+            <div class="mb-2">
+              <label class="form-label fw-bold">Product Name</label>
+              <input type="text" class="form-control" [(ngModel)]="product.name" name="name" required>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-2">
+              <label class="form-label fw-bold">Description</label>
+              <textarea class="form-control" [(ngModel)]="product.description" name="description" rows="2"></textarea>
+            </div>
+
+            <!-- Price & Quantity Row -->
+            <div class="row">
+              <div class="col-6">
+                <label class="form-label fw-bold">Price</label>
+                <div class="input-group">
+                  <span class="input-group-text">$</span>
+                  <input type="number" class="form-control" [(ngModel)]="product.price" name="price" required min="0">
+                </div>
+              </div>
+              <div class="col-6">
+                <label class="form-label fw-bold">Quantity</label>
+                <input type="number" class="form-control" [(ngModel)]="product.quantity" name="quantity" required min="1">
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center mt-3">
+              <button type="submit" class="btn btn-success w-100 fw-bold py-2 shadow-sm" [disabled]="!productForm.form.valid">
+                <i class="bi bi-save"></i> Update
+              </button>
+            </div>
+
+          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<ng-template #noData>
-  <div class="container mt-4 text-center" *ngIf="error">
-    <h5 class="text-muted">{{ error }}</h5>
-  </div>
-</ng-template>

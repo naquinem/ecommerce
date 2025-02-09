@@ -10,12 +10,17 @@ import Swal from 'sweetalert2';
 })
 export class UpdateProductComponent implements OnInit {
   constructor(private http: ProtectedService, private router: Router, private routes: ActivatedRoute){}
-  product: any = {};
   image!: File | null;
   name!: string;
   description!: string;
   price: number | null = null;
   quantity: number | null = null;
+  product: any = {
+    name: this.name,
+    description: this.description,
+    price: this.price,
+    quantity: this.quantity
+  };
   error: string | null = null;
   ngOnInit(): void {
     const id = this.routes.snapshot.paramMap.get('id');
@@ -34,13 +39,12 @@ export class UpdateProductComponent implements OnInit {
   }
   handleUpdate(){
     const id = this.routes.snapshot.paramMap.get('id');
-    const formData = new FormData;
-    formData.append('image', this.image as File);
-    formData.append('name', this.name);
-    formData.append('description', this.description);
-    formData.append('price', this.price?.toString() || '');
-    formData.append('quantity', this.quantity?.toString() || '');
-
+    const formData = {
+      name: this.product.name,
+      description: this.product.description,
+      price: this.product.price,
+      quantity: this.product.quantity
+    };
     this.http.updateProduct(formData,id).subscribe({
       next: (response:any) => {
         if(response.status === 200) {
@@ -54,5 +58,8 @@ export class UpdateProductComponent implements OnInit {
         }
       }
     })
+  }
+  onFileSelected(event: any) {
+    this.image = event.target.files[0];
   }
 }
