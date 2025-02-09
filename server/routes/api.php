@@ -14,7 +14,6 @@ Route::post('login', [AuthController::class, 'signin']);
 Route::get('read-products', [ProductController::class, 'index']);
 Route::get('read-categories', [CategoryController::class, 'index']);
 
-
 Route::middleware('auth:api')->group(function(){
 
     Route::post('add-category', [CategoryController::class, 'store']);
@@ -26,6 +25,9 @@ Route::middleware('auth:api')->group(function(){
     Route::get('show-product/{id}', [ProductController::class, 'show']);
     Route::put('update-product/{id}', [ProductController::class, 'edit']);
     Route::delete('delete-product/{id}', [ProductController::class, 'destroy']);
+
+
+    Route::get('seller/read-products', [ProductController::class, 'productIndex']);
 
     Route::get('read-carts', [CartController::class, 'cartIndex']);
     Route::post('add-cart-items', [CartController::class, 'store']);

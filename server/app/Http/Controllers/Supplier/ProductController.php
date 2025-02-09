@@ -50,6 +50,21 @@ class ProductController extends Controller
             ], 200);
         }
     }
+    public function productIndex()
+    {
+        $user = Product::where('user_id', Auth::id())->get();
+        if(!$user){
+            return response()->json([
+                'status' => 404,
+                'message' => 'Cart not found'
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 200,
+                'products' => $user
+            ], 200);
+        }
+    }
     public function index()
     {
         $user = Product::where('user_id', Auth::id())->get();
