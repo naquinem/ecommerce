@@ -13,6 +13,7 @@ export class AddProductComponent implements OnInit {
   categories: any [] = [];
   selectedCategory: number | null = null;
   name!: string;
+  image!: string;
   description!: string;
   price: number | null = null;
   quantity: number | null = null;
@@ -26,6 +27,7 @@ export class AddProductComponent implements OnInit {
   addProduct(){
     const product = {
       category_id: this.selectedCategory,
+      image_url: this.image,
       name: this.name,
       description: this.description,
       price: this.price,
@@ -41,6 +43,7 @@ export class AddProductComponent implements OnInit {
         });
         this.selectedCategory = null,
         this.name = '';
+        this.image = '';
         this.description = '';
         this.price = null;
         this.quantity = null;
