@@ -16,11 +16,16 @@ class ProductController extends Controller
         // Validate the request
         $validated = $request->validate([
             'category_id' => 'required|integer|exists:categories,id',
+            'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'price' => 'required|integer|min:0',
             'quantity' => 'required|integer|min:0',
         ]);
+
+        // Upload the image
+        $imagePath = $request->file('image_url')->store('images', 'public');
+
         // Get the authenticated user
         $user = User::where('id', Auth::id())->first();
         if (!$user) {
@@ -37,6 +42,7 @@ class ProductController extends Controller
             $product = Product::create([
                 'user_id' => $user->id, // Use the authenticated user's ID
                 'category_id' => $category->id,
+                'image_url' => $imagePath,
                 'name' => $validated['name'],
                 'description' => $validated['description'],
                 'price' => $validated['price'],
