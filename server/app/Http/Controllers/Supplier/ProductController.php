@@ -106,12 +106,14 @@ class ProductController extends Controller
     {
         // Validate the request
         $validated = $request->validate([
-            'category_id' => 'required|integer|exists:categories,id',
+            'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'price' => 'required|integer|min:0',
             'quantity' => 'required|integer|min:0',
         ]);
+        // Upload the image
+        $imagePath = $request->file('image_url')->store('images', 'public');
         // Get the authenticated user
         $user = User::where('id', Auth::user()->id)->first();
         if (!$user) {
@@ -122,15 +124,12 @@ class ProductController extends Controller
                 'message' => 'You must be logged in to create a product.',
             ], 401);
         } else {
-            // Find the category
-            $category = Category::find($validated['category_id']);
             // Find user authentication id
             $product = Product::find($id);
             if($product) {
                 // Create the product
                 $product->update([
-                    'user_id' => $user->id, // Use the authenticated user's ID
-                    'category_id' => $category->id,
+                    'image_url' => $imagePath,
                     'name' => $validated['name'],
                     'description' => $validated['description'],
                     'price' => $validated['price'],
