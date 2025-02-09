@@ -22,8 +22,8 @@ export class ProtectedService {
     return this.api.post('http://127.0.0.1:8000/api/add-product', product);
   }
   //Update individual product
-  updateProduct(product:any,id:any){
-    return this.api.put(`http://127.0.0.1:8000/api/update-product/${id}`, product);
+  updateProduct(formData:any,id:any){
+    return this.api.put(`http://127.0.0.1:8000/api/update-product/${id}`, formData);
   }
   //Delete individual product
   deleteProduct(id:any){
