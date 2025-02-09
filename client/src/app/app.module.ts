@@ -27,6 +27,9 @@ import { CustomerCartComponent } from './Pages/Protected/Customer/customer-cart/
 import { CustomerOrderComponent } from './Pages/Protected/Customer/customer-order/customer-order.component';
 import { CustomerHomeComponent } from './Pages/Protected/Customer/customer-home/customer-home.component';
 import { OrderListsComponent } from './Pages/Protected/order-lists/order-lists.component';
+import { AdminHomeComponent } from './Pages/Admin/admin-home/admin-home.component';
+import { CategoryComponent } from './Pages/Admin/category/category.component';
+import { AdminNavbarComponent } from './Pages/Admin/admin-navbar/admin-navbar.component';
 
 
 
@@ -52,7 +55,10 @@ import { OrderListsComponent } from './Pages/Protected/order-lists/order-lists.c
     CustomerCartComponent,
     CustomerOrderComponent,
     CustomerHomeComponent,
-    OrderListsComponent
+    OrderListsComponent,
+    AdminHomeComponent,
+    CategoryComponent,
+    AdminNavbarComponent
   ],
   imports: [
     BrowserModule,

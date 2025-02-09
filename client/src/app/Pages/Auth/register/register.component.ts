@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
 import Swal from 'sweetalert2';
 
@@ -8,7 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(private http: AuthenticationService) {}
+  constructor(private http: AuthenticationService, private router: Router) {}
 
   name!: string;
   username!: string;
@@ -34,6 +35,7 @@ export class RegisterComponent {
             icon: 'success',
             confirmButtonText: 'Great!',
           });
+          this.router.navigate(['/sign-in']);
         }
       },
       error: (response: any) => {

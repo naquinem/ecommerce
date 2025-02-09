@@ -11,7 +11,7 @@ export class ProtectedService {
   //For Products http routes
   //View all products
   getProducts(){
-    return this.api.get('http://127.0.0.1:8000/api/read-products');
+    return this.api.get('http://127.0.0.1:8000/api/seller/read-products');
   }
   //View individual product
   getProduct(id:any){

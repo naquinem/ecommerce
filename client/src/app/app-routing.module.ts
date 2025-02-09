@@ -13,6 +13,8 @@ import { DeleteCategoryComponent } from './Pages/Protected/delete-category/delet
 import { UpdateProductComponent } from './Pages/Protected/update-product/update-product.component';
 import { DeleteProductComponent } from './Pages/Protected/delete-product/delete-product.component';
 import { OrderListsComponent } from './Pages/Protected/order-lists/order-lists.component';
+import { AdminHomeComponent } from './Pages/Admin/admin-home/admin-home.component';
+import { CategoryComponent } from './Pages/Admin/category/category.component';
 
 const routes: Routes = [
   {
@@ -82,6 +84,17 @@ const routes: Routes = [
       },
     ]
   },
+  {
+    path: 'admin',
+    component: AdminHomeComponent,
+    children: [
+      {
+        path: 'category',
+        component: CategoryComponent,
+        title: 'Category'
+      }
+    ]
+  }
 ];
 
 @NgModule({
