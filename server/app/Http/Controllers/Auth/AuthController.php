@@ -61,7 +61,8 @@ class AuthController extends Controller
                     'status' => 200,
                     'message' => 'Successfully login',
                     'user' => $user->username,
-                    'token' => $token
+                    'token' => $token,
+                    'data' => $user
                 ], 200);
             }
         } else {

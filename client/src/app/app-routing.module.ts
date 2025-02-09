@@ -14,6 +14,7 @@ import { AddCategoryComponent } from './Pages/Admin/add-category/add-category.co
 import { ViewCategoryComponent } from './Pages/Admin/view-category/view-category.component';
 import { UpdateCategoryComponent } from './Pages/Admin/update-category/update-category.component';
 import { DeleteCategoryComponent } from './Pages/Admin/delete-category/delete-category.component';
+import { CustomerHomeComponent } from './Pages/Protected/Customer/customer-home/customer-home.component';
 
 const routes: Routes = [
   {
@@ -88,6 +89,11 @@ const routes: Routes = [
         title: 'Delete Category'
       },
     ]
+  },
+  {
+    path: 'customer',
+    component: CustomerHomeComponent,
+
   }
 ];
 

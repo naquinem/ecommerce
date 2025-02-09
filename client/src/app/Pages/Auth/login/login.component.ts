@@ -28,8 +28,15 @@ export class LoginComponent {
           });
           localStorage.setItem('token', response.token);
           localStorage.setItem('username', response.user);
+          if(response.data.role === 'admin') {
+            this.router.navigate(['/admin']);
+          } else if(response.data.role === 'supplier'){
+            this.router.navigate(['/home']);
+          } else {
+            this.router.navigate(['/customer']);
+          }
           console.log(response);
-          this.router.navigate(['/home']);
+
         }
       },
       error: (response: any) => {
