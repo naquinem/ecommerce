@@ -4,17 +4,16 @@ import { LoginComponent } from './Pages/Auth/login/login.component';
 import { RegisterComponent } from './Pages/Auth/register/register.component';
 import { MainComponent } from './Pages/Unprotected/main/main.component';
 import { HomeComponent } from './Pages/Protected/home/home.component';
-import { AddCategoryComponent } from './Pages/Protected/add-category/add-category.component';
 import { AddProductComponent } from './Pages/Protected/add-product/add-product.component';
-import { ViewCategoriesComponent } from './Pages/Protected/view-categories/view-categories.component';
 import { ViewProductsComponent } from './Pages/Protected/view-products/view-products.component';
-import { UpdateCategoryComponent } from './Pages/Protected/update-category/update-category.component';
-import { DeleteCategoryComponent } from './Pages/Protected/delete-category/delete-category.component';
 import { UpdateProductComponent } from './Pages/Protected/update-product/update-product.component';
 import { DeleteProductComponent } from './Pages/Protected/delete-product/delete-product.component';
 import { OrderListsComponent } from './Pages/Protected/order-lists/order-lists.component';
 import { AdminHomeComponent } from './Pages/Admin/admin-home/admin-home.component';
-import { CategoryComponent } from './Pages/Admin/category/category.component';
+import { AddCategoryComponent } from './Pages/Admin/add-category/add-category.component';
+import { ViewCategoryComponent } from './Pages/Admin/view-category/view-category.component';
+import { UpdateCategoryComponent } from './Pages/Admin/update-category/update-category.component';
+import { DeleteCategoryComponent } from './Pages/Admin/delete-category/delete-category.component';
 
 const routes: Routes = [
   {
@@ -37,26 +36,6 @@ const routes: Routes = [
     component:HomeComponent,
     title: 'Home',
     children: [
-      {
-        path: 'add-category',
-        component: AddCategoryComponent,
-        title: 'Add Category'
-      },
-      {
-        path: 'view-categories',
-        component: ViewCategoriesComponent,
-        title: 'View Categories'
-      },
-      {
-        path: 'view-categories/update/:id',
-        component: UpdateCategoryComponent,
-        title: 'Update Category'
-      },
-      {
-        path: 'view-categories/delete/:id',
-        component: DeleteCategoryComponent,
-        title: 'Delete Category'
-      },
       {
         path: 'add-product',
         component: AddProductComponent,
@@ -89,10 +68,25 @@ const routes: Routes = [
     component: AdminHomeComponent,
     children: [
       {
-        path: 'category',
-        component: CategoryComponent,
-        title: 'Category'
-      }
+        path: 'add-category',
+        component: AddCategoryComponent,
+        title: 'Add Category'
+      },
+      {
+        path: '',
+        component: ViewCategoryComponent,
+        title: 'View Category'
+      },
+      {
+        path: 'view-categories/update/:id',
+        component: UpdateCategoryComponent,
+        title: 'Update Category'
+      },
+      {
+        path: 'view-categories/delete/:id',
+        component: DeleteCategoryComponent,
+        title: 'Delete Category'
+      },
     ]
   }
 ];

@@ -15,14 +15,10 @@ import { MainNavbarComponent } from './Pages/Components/main-navbar/main-navbar.
 import { MainComponent } from './Pages/Unprotected/main/main.component';
 import { HomeNavbarComponent } from './Pages/Components/home-navbar/home-navbar.component';
 import { AddProductComponent } from './Pages/Protected/add-product/add-product.component';
-import { AddCategoryComponent } from './Pages/Protected/add-category/add-category.component';
 import { AuthenticationInterceptor } from './Services/authentication.interceptor';
 import { ViewProductsComponent } from './Pages/Protected/view-products/view-products.component';
-import { ViewCategoriesComponent } from './Pages/Protected/view-categories/view-categories.component';
 import { DeleteProductComponent } from './Pages/Protected/delete-product/delete-product.component';
 import { UpdateProductComponent } from './Pages/Protected/update-product/update-product.component';
-import { UpdateCategoryComponent } from './Pages/Protected/update-category/update-category.component';
-import { DeleteCategoryComponent } from './Pages/Protected/delete-category/delete-category.component';
 import { CustomerCartComponent } from './Pages/Protected/Customer/customer-cart/customer-cart.component';
 import { CustomerOrderComponent } from './Pages/Protected/Customer/customer-order/customer-order.component';
 import { CustomerHomeComponent } from './Pages/Protected/Customer/customer-home/customer-home.component';
@@ -30,6 +26,11 @@ import { OrderListsComponent } from './Pages/Protected/order-lists/order-lists.c
 import { AdminHomeComponent } from './Pages/Admin/admin-home/admin-home.component';
 import { CategoryComponent } from './Pages/Admin/category/category.component';
 import { AdminNavbarComponent } from './Pages/Admin/admin-navbar/admin-navbar.component';
+import { ViewCategoryComponent } from './Pages/Admin/view-category/view-category.component';
+import { AddCategoryComponent } from './Pages/Admin/add-category/add-category.component';
+import { UpdateCategoryComponent } from './Pages/Admin/update-category/update-category.component';
+import { DeleteCategoryComponent } from './Pages/Admin/delete-category/delete-category.component';
+
 
 
 
@@ -45,9 +46,7 @@ import { AdminNavbarComponent } from './Pages/Admin/admin-navbar/admin-navbar.co
     MainComponent,
     HomeNavbarComponent,
     AddProductComponent,
-    AddCategoryComponent,
     ViewProductsComponent,
-    ViewCategoriesComponent,
     DeleteProductComponent,
     UpdateProductComponent,
     UpdateCategoryComponent,
@@ -58,7 +57,9 @@ import { AdminNavbarComponent } from './Pages/Admin/admin-navbar/admin-navbar.co
     OrderListsComponent,
     AdminHomeComponent,
     CategoryComponent,
-    AdminNavbarComponent
+    AdminNavbarComponent,
+    ViewCategoryComponent,
+    AddCategoryComponent,
   ],
   imports: [
     BrowserModule,

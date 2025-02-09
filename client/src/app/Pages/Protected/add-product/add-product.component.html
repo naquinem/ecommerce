@@ -19,7 +19,7 @@
         <!-- Image input -->
         <div class="mb-3">
           <label for="image" class="form-label fw-bold">Image</label>
-          <input class="form-control" type="file" id="image" [(ngModel)] ="image" name="name" required>
+          <input class="form-control" type="file" id="image" (change)="onFileSelected($event)" required>
         </div>
 
         <!-- Product Name Input -->

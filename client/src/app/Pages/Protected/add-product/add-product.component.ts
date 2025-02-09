@@ -13,7 +13,7 @@ export class AddProductComponent implements OnInit {
   categories: any [] = [];
   selectedCategory: number | null = null;
   name!: string;
-  image!: string;
+  image!: File | null;
   description!: string;
   price: number | null = null;
   quantity: number | null = null;
@@ -25,15 +25,14 @@ export class AddProductComponent implements OnInit {
     })
   }
   addProduct(){
-    const product = {
-      category_id: this.selectedCategory,
-      image_url: this.image,
-      name: this.name,
-      description: this.description,
-      price: this.price,
-      quantity: this.quantity
-    }
-    this.protectedhttp.addProducts(product).subscribe({
+    const formData = new FormData();
+    formData.append('category_id', this.selectedCategory?.toString() || '');
+    formData.append('image_url', this.image as File);
+    formData.append('name', this.name);
+    formData.append('description', this.description);
+    formData.append('price', this.price?.toString() || '');
+    formData.append('quantity', this.quantity?.toString() || '');
+    this.protectedhttp.addProducts(formData).subscribe({
       next: (response:any) => {
         Swal.fire({
           title: 'Success!',
@@ -43,7 +42,7 @@ export class AddProductComponent implements OnInit {
         });
         this.selectedCategory = null,
         this.name = '';
-        this.image = '';
+        this.image = null;
         this.description = '';
         this.price = null;
         this.quantity = null;
@@ -67,5 +66,8 @@ export class AddProductComponent implements OnInit {
         }
       }
     });
+  }
+  onFileSelected(event: any) {
+    this.image = event.target.files[0];
   }
 }

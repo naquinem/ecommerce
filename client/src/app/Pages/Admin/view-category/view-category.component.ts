@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProtectedService } from 'src/app/Services/protected.service';
 
 @Component({
-  selector: 'app-view-categories',
-  templateUrl: './view-categories.component.html',
-  styleUrls: ['./view-categories.component.css']
+  selector: 'app-view-category',
+  templateUrl: './view-category.component.html',
+  styleUrls: ['./view-category.component.css']
 })
-export class ViewCategoriesComponent implements OnInit {
+export class ViewCategoryComponent implements OnInit {
   constructor(private http: ProtectedService){}
   categories: any [] = [];
   error: string|null = null;

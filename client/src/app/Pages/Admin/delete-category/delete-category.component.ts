@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./delete-category.component.css']
 })
 export class DeleteCategoryComponent implements OnInit {
-  constructor(private http: ProtectedService, private routes: ActivatedRoute, private router: Router){}
+constructor(private http: ProtectedService, private routes: ActivatedRoute, private router: Router){}
   category: any = {}
   error!: string;
   ngOnInit(): void {
@@ -38,7 +38,7 @@ export class DeleteCategoryComponent implements OnInit {
             icon: 'success',
             confirmButtonText: 'Okay'
           });
-          this.router.navigate(['/home/view-categories']);
+          this.router.navigate(['/admin/view-categories']);
         }
       },
       error: (error:any) => {
@@ -49,7 +49,7 @@ export class DeleteCategoryComponent implements OnInit {
             icon: 'error',
             confirmButtonText: 'Error'
           });
-          this.router.navigate(['/home/view-categories']);
+          this.router.navigate(['/admin/view-categories']);
         }
       }
     })

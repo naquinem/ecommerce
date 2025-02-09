@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
 import Swal from 'sweetalert2';
 
@@ -8,7 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(private http: AuthenticationService){}
+  constructor(private http: AuthenticationService, private router: Router){}
   handleLogout(){
     const logout = {}
     this.http.handleLogout(logout).subscribe({
@@ -19,6 +20,7 @@ export class NavbarComponent {
             icon: 'success',
             confirmButtonText: response.message
           });
+          this.router.navigate(['/sign-in']);
         }
       },
       error: (response:any) => {
